@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+if [[ -n "${DEBUG}" ]]; then
+    set -x
+fi
+
+read data
+
+set -e
+
+curl -sf --header "Content-Type: application/json" --request POST --data "${data}" "${REGISTRY_AUTH_CALLBACK_AUTHZ}"

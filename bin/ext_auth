@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+if [[ -n "${DEBUG}" ]]; then
+    set -x
+fi
+
+read user password
+
+set -e
+
+curl -sf "${REGISTRY_AUTH_CALLBACK_AUTH}?user=${user}&password=${password}"
